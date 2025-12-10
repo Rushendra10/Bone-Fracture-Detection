@@ -6,7 +6,9 @@ Welcome to our GitHub repo for our CSCI 5561 Final Project: Bone Fracture Detect
 
 Bone fractures are common injuries generally diagnosed through X-rays. Deep learning models for fracture detection can aid clinicians in timely and accurate diagnoses of fractures. However, these models typically focus on specific regions of the body, limiting their generalizability. To address this, we trained Faster R-CNN,  RetinaNet, and YOLO12n object detection models on the FracAtlas dataset, which consists of X-rays of several regions of the body. 
 
-In this repo, look the models folder for sub-folders for each of the models we worked with. In each those subfolders, you will find a README. Please refer to these READMEs in order to understand which packages and versions are needed for model execution, as well as intructions for how to run the models on your local machine. In the models/yolo
+In this repo, look in the "models" folder for three sub-folders, namely YOLOv12, RetinaNet, and 
+
+each of  models we worked with. In each those subfolders, you will find a README. Please refer to these READMEs in order to understand which packages and versions are needed for model execution, as well as intructions for how to run the models on your local machine. 
 
 # Dataset
 
