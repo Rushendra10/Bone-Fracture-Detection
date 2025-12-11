@@ -122,7 +122,7 @@ TEST_LABELS_PATH = "datasets/fracatlas/labels/test"
 data_yaml = "fracatlas.yaml"
 ```
 
-### Some Key Script-Specific Paths (Refer to each *.py script in this folder for more details) 
+### Some Key Script-Specific Paths (Refer to each *.py script in this folder for details) 
 
 | Script | Paths to Update |
 |--------|-----------------|
