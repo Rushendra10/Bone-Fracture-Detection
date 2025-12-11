@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 from ultralytics import YOLO
 
-# CONFIGURATION - Update these paths
+# Configuration - Update these paths
 
 MODEL_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 TEST_IMAGES_PATH = "datasets/fracatlas/images/test"
@@ -22,7 +22,7 @@ IOU_THRESHOLD = 0.5
 DEVICE = 0
 NUM_EXAMPLES = 5  # How many top examples to show
 
-# FUNCTIONS
+# Helper Function
 
 def compute_iou(box1, box2):
     """Compute IoU between two boxes in xyxy format."""
@@ -40,6 +40,7 @@ def compute_iou(box1, box2):
         return 0.0
     return intersection / union
 
+# Main
 
 def main():
     print("=" * 60)
