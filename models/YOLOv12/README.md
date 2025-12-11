@@ -107,7 +107,7 @@ names:
 
 ## Path Configuration
 
-Most scripts require path updates in their `CONFIGURATION` section. Below are the key paths to modify:
+Most scripts require path updates in their `CONFIGURATION` section. Below are **some** of the key paths to modify (it is up to the user to ensure all necessary paths are correct in each script):
 
 ### Common Paths
 ```python
@@ -122,7 +122,7 @@ TEST_LABELS_PATH = "datasets/fracatlas/labels/test"
 data_yaml = "fracatlas.yaml"
 ```
 
-### Script-Specific Paths
+### Some Key Script-Specific Paths (Please refer to each script in this folder for more details) 
 
 | Script | Paths to Update |
 |--------|-----------------|
@@ -255,7 +255,6 @@ false_negative_results/
 - **Confidence Threshold:** Evaluation uses `conf=0.5` to filter low-confidence predictions. This can be adjusted in the respective scripts.
 - **IoU Threshold:** Default is 0.5 for matching predictions to ground truth.
 - **Pre-trained Weights:** The `best.pt` file in this repository contains our fine-tuned weights. To retrain from scratch, run `yolo_frac_tuned.py`.
-- 
 
 ---
 
