@@ -1,6 +1,6 @@
 """
 Compute Average IoU for YOLO12 on Test Set
-===========================================
+------------------------------------------
 Calculates the mean IoU between predicted and ground truth bounding boxes
 for all true positive detections.
 
@@ -15,22 +15,16 @@ from pathlib import Path
 import numpy as np
 from ultralytics import YOLO
 
-
-# ============================================================================
 # CONFIGURATION - Update these paths
-# ============================================================================
 
 MODEL_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 TEST_IMAGES_PATH = "datasets/fracatlas/images/test"  # Direct path to test images
 TEST_LABELS_PATH = "datasets/fracatlas/labels/test"  # Direct path to test labels
-CONF_THRESHOLD = 0.5  # Same threshold you used for evaluation
+CONF_THRESHOLD = 0.5  # Same threshold used for evaluation
 IOU_THRESHOLD = 0.5   # IoU threshold to consider a detection as true positive
 DEVICE = 0  # GPU (use 'cpu' if no GPU)
 
-
-# ============================================================================
 # IoU COMPUTATION
-# ============================================================================
 
 def compute_iou(box1, box2):
     """
@@ -74,13 +68,6 @@ def main():
     print(f"Test labels path: {test_labels_dir}")
     
     # Get all test images
-    
-    #image_extensions = ['.jpg', '.jpeg', '.png', '.bmp']
-    #test_images = []
-    #for ext in image_extensions:
-        #test_images.extend(list(test_images_dir.glob(f'*{ext}')))
-        #test_images.extend(list(test_images_dir.glob(f'*{ext.upper()}')))
-
     test_images = list(test_images_dir.glob('*.jpg'))
     
     print(f"Found {len(test_images)} test images")
