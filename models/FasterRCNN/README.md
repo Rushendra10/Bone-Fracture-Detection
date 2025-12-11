@@ -1,5 +1,14 @@
 ## Faster R-CNN Model Code
 
+## Dependencies
+
+A complete list of dependencies required for this project is provided in the included **`requirements.txt`** file.
+
+To install all necessary packages, run:
+
+```bash
+pip install -r requirements.txt
+
 This project implements Faster R-CNN from scratch using PyTorch components, applied to bone fracture detection on the FracAtlas dataset.
 
 The goal is to deeply understand each step of the pipeline:
