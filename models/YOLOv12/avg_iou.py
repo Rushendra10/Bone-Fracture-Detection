@@ -15,7 +15,7 @@ from pathlib import Path
 import numpy as np
 from ultralytics import YOLO
 
-# CONFIGURATION - Update these paths
+# Configuration - Update these paths
 
 MODEL_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 TEST_IMAGES_PATH = "datasets/fracatlas/images/test"  # Direct path to test images
@@ -24,7 +24,7 @@ CONF_THRESHOLD = 0.5  # Same threshold used for evaluation
 IOU_THRESHOLD = 0.5   # IoU threshold to consider a detection as true positive
 DEVICE = 0  # GPU (use 'cpu' if no GPU)
 
-# IoU COMPUTATION
+# Helper Function - IoU Computation
 
 def compute_iou(box1, box2):
     """
@@ -50,6 +50,7 @@ def compute_iou(box1, box2):
         return 0.0
     return intersection / union
 
+# Main
 
 def main():
     print("=" * 50)
