@@ -1,6 +1,6 @@
 """
 YOLO Fracture Visualization - Simple & Robust Version
-======================================================
+--------------------------------------------------------
 Uses feature activation maps (more reliable than Grad-CAM for YOLO)
 and creates clean visualizations of attention + bounding box comparisons.
 
@@ -22,10 +22,7 @@ from pathlib import Path
 import torch
 from ultralytics import YOLO
 
-
-# ============================================================================
-# CONFIGURATION
-# ============================================================================
+# CONFIGURATION - Update paths
 
 MODEL_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 
@@ -50,10 +47,7 @@ IMAGES = [
 
 OUTPUT_DIR = "fracture_results"
 
-
-# ============================================================================
-# UTILITY FUNCTIONS
-# ============================================================================
+# Helper Functions 
 
 def yolo_to_xyxy(yolo_box, img_w, img_h):
     """Convert YOLO format to pixel coordinates [x1, y1, x2, y2]."""
@@ -293,10 +287,7 @@ def create_combined_figure(results_list, output_path):
     plt.close()
     print(f"  Saved combined figure: {output_path}")
 
-
-# ============================================================================
-# MAIN
-# ============================================================================
+# Main
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -348,7 +339,7 @@ def main():
     
     extractor.cleanup()
     
-    print(f"\n✅ Done! Results saved to: {OUTPUT_DIR}/")
+    print(f"Results saved to: {OUTPUT_DIR}/")
 
 
 if __name__ == "__main__":
