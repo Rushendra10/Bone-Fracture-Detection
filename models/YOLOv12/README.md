@@ -255,3 +255,31 @@ false_negative_results/
 - **Confidence Threshold:** Evaluation uses `conf=0.5` to filter low-confidence predictions. This can be adjusted in the respective scripts.
 - **IoU Threshold:** Default is 0.5 for matching predictions to ground truth.
 - **Pre-trained Weights:** The `best.pt` file in this repository contains our fine-tuned weights. To retrain from scratch, run `yolo_frac_tuned.py`.
+- 
+
+---
+
+## References
+
+### YOLOv12 Paper
+> Y. Tian, Q. Ye, and D. Doermann, "YOLO12: Attention-Centric Real-Time Object Detectors," *arXiv preprint arXiv:2502.12524*, 2025.
+```bibtex
+@article{tian2025yolo12,
+  title={YOLO12: Attention-Centric Real-Time Object Detectors},
+  author={Tian, Yunjie and Ye, Qixiang and Doermann, David},
+  journal={arXiv preprint arXiv:2502.12524},
+  year={2025}
+}
+```
+
+### YOLOv12 Software
+> Y. Tian, Q. Ye, and D. Doermann, "YOLO12: Attention-Centric Real-Time Object Detectors," 2025. Available: https://github.com/sunsmarterjie/yolov12
+```bibtex
+@software{yolo12,
+  author = {Tian, Yunjie and Ye, Qixiang and Doermann, David},
+  title = {YOLO12: Attention-Centric Real-Time Object Detectors},
+  year = {2025},
+  url = {https://github.com/sunsmarterjie/yolov12},
+  license = {AGPL-3.0}
+}
+```
