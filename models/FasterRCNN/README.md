@@ -8,7 +8,7 @@ The goal is to deeply understand each step of the pipeline:
 	•	Manual backbone construction using ResNet-50 (C5 feature map)
 	
 	•	Manual anchor generation for the Region Proposal Network (RPN)
-	
+
 	•	Manual ROI pooling using MultiScaleRoIAlign
 	
 	•	Custom training loop with per-step and per-epoch logging
