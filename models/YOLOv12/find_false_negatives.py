@@ -1,6 +1,6 @@
 """
 Find False Negative Examples from Test Set
-==========================================
+-------------------------------------------
 Identifies test images where the model failed to detect a fracture
 (ground truth exists but no prediction was made, or prediction was poor).
 
@@ -21,10 +21,7 @@ import matplotlib.patches as patches
 from ultralytics import YOLO
 import os
 
-
-# ============================================================================
-# CONFIGURATION
-# ============================================================================
+# CONFIGURATION - Update these paths
 
 MODEL_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 TEST_IMAGES_PATH = "datasets/fracatlas/images/test"
@@ -35,10 +32,7 @@ DEVICE = 0
 NUM_EXAMPLES = 5
 OUTPUT_DIR = "false_negative_results"
 
-
-# ============================================================================
 # FUNCTIONS
-# ============================================================================
 
 def compute_iou(box1, box2):
     """Compute IoU between two boxes in xyxy format."""
