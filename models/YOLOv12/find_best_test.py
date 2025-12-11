@@ -1,6 +1,6 @@
 """
 Find Best IoU Examples from Test Set
-====================================
+--------------------------------------
 Identifies test images with highest IoU between predictions and ground truth,
 and outputs the coordinates needed for visualization.
 
@@ -12,10 +12,7 @@ from pathlib import Path
 import numpy as np
 from ultralytics import YOLO
 
-
-# ============================================================================
-# CONFIGURATION
-# ============================================================================
+# CONFIGURATION - Update these paths
 
 MODEL_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 TEST_IMAGES_PATH = "datasets/fracatlas/images/test"
@@ -25,10 +22,7 @@ IOU_THRESHOLD = 0.5
 DEVICE = 0
 NUM_EXAMPLES = 5  # How many top examples to show
 
-
-# ============================================================================
 # FUNCTIONS
-# ============================================================================
 
 def compute_iou(box1, box2):
     """Compute IoU between two boxes in xyxy format."""
@@ -160,7 +154,7 @@ def main():
     print("  COPY-PASTE FORMAT FOR VISUALIZATION SCRIPT")
     print("=" * 60)
     
-    for i, det in enumerate(all_detections[:3]):  # Top 3 for the combined figure
+    for i, det in enumerate(all_detections[:3]):  # Top 3 for the combined figure, in format for easy copy and paste for attention map visualization code
         print(f"""
     {{
         "path": "datasets/fracatlas/images/test/{det['image_name']}",
