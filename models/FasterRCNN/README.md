@@ -4,15 +4,25 @@ This project implements Faster R-CNN from scratch using PyTorch components, appl
 
 The goal is to deeply understand each step of the pipeline:
 	•	Custom dataset loader following COCO-style annotations
+	
 	•	Manual backbone construction using ResNet-50 (C5 feature map)
+	
 	•	Manual anchor generation for the Region Proposal Network (RPN)
+	
 	•	Manual ROI pooling using MultiScaleRoIAlign
+	
 	•	Custom training loop with per-step and per-epoch logging
+	
 	•	Custom evaluator computing:
+	
 	•	mAP@50
+	
 	•	mAP@50–95
+	
 	•	Mean Average Recall (MAR)
+	
 	•	Mean IoU
+	
 	•	Visualization utilities for displaying predictions with ground-truth overlays
 
 This implementation mirrors the original Faster R-CNN architecture but avoids using the high-level torchvision.models.detection.FasterRCNN wrapper, allowing full visibility and control over internal components.
