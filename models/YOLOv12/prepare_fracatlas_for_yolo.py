@@ -1,9 +1,19 @@
+"""
+This script prepares the FracAtlas dataset for YOLO
+
+Requirements:
+    shutil
+    pathlib
+    pandas
+
+"""
+
 import shutil
 from pathlib import Path
 
 import pandas as pd
 
-# ====== CONFIGURE THESE PATHS IF NEEDED ======
+# Configure these paths IF needed 
 
 # Root of the original Figshare dataset (relative to this script)
 FRAC_ROOT = Path("FracAtlas")
@@ -15,7 +25,7 @@ YOLO_ANN_ROOT = FRAC_ROOT / "Annotations" / "YOLO"
 # Where the split CSVs live
 SPLIT_ROOT = FRAC_ROOT / "Utilities" / "Fracture Split"
 
-# Where we will write the YOLO-style dataset (Ultralytics/YOLOv8/12 format)
+# Where it will write the YOLO-style dataset (Ultralytics/YOLOv8/12 format)
 OUT_ROOT = Path("datasets") / "fracatlas"
 
 # Column name in train/valid/test CSVs that holds the image filename
