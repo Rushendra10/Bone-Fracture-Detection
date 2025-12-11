@@ -1,6 +1,6 @@
 """
 FracAtlas Dataset - Fracture Distribution Bar Chart
-====================================================
+-----------------------------------------------------
 Generates a bar chart showing the distribution of fractured images
 by body region (Hand, Leg, Hip, Shoulder).
 
@@ -12,17 +12,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ============================================================================
-# CONFIGURATION
-# ============================================================================
+# Configuration - Update these paths
 
 CSV_PATH = "FracAtlas/dataset.csv"  # Update this path if needed
 OUTPUT_PATH = "fracture_distribution.png"
 
-
-# ============================================================================
-# MAIN
-# ============================================================================
+# Main
 
 def main():
     # Load the dataset
@@ -61,7 +56,7 @@ def main():
     x = np.arange(len(region_labels))
     width = 0.35
     
-    # Option 1: Just fractured images (matching the paper's figure style)
+    #Just fractured images (matching the FracAtlas paper's figure style)
     bars = ax.bar(x, fractured_counts, width, color='#E74C3C', edgecolor='black', linewidth=1.2)
     
     # Add value labels on bars
