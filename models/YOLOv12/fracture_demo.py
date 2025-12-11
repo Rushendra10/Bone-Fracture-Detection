@@ -1,6 +1,6 @@
 """
 Interactive Fracture Detection Demo
-===================================
+-------------------------------------
 A step-by-step demo comparing human vs. AI fracture detection.
 
 Requirements:
@@ -17,23 +17,18 @@ import matplotlib.patches as patches
 from matplotlib.widgets import Button
 import os
 
-# ============================================================================
 # CONFIGURATION - Update these paths
-# ============================================================================
 
 IMAGE_PATH = "datasets/fracatlas/images/val/IMG0004208.jpg"
 OVERLAY_PATH = "fracture_results/IMG0004208_overlay.npy"  # Pre-saved heatmap overlay
 
-# Ground truth (YOLO format: class, x_center, y_center, width, height - normalized)
+# Ground truth (YOLO format: class, x_center, y_center, width, height - normalized) - entered manually
 GT_YOLO = [0, 0.5190, 0.5034, 0.0894, 0.0811]
 
-# Prediction (xyxy pixels)
+# Prediction (xyxy pixels) - entered manually
 PREDICTION = {"class": 0, "score": 0.769, "box": [178.2, 202.7, 210.6, 249.4]}
 
-
-# ============================================================================
-# HELPER FUNCTIONS
-# ============================================================================
+# Helper Functions
 
 def yolo_to_xyxy(yolo_box, img_w, img_h):
     """Convert YOLO format to pixel coordinates [x1, y1, x2, y2]."""
@@ -50,10 +45,7 @@ def point_in_box(x, y, box):
     x1, y1, x2, y2 = box
     return x1 <= x <= x2 and y1 <= y <= y2
 
-
-# ============================================================================
-# INTERACTIVE DEMO CLASS
-# ============================================================================
+# Interactive Demo
 
 class FractureDemo:
     def __init__(self, image_path, overlay_path, gt_yolo, prediction):
@@ -276,10 +268,7 @@ class FractureDemo:
         
         plt.show()
 
-
-# ============================================================================
-# MAIN
-# ============================================================================
+# Main
 
 def main():
     print("=" * 50)
