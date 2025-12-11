@@ -17,7 +17,7 @@ import matplotlib.patches as patches
 from matplotlib.widgets import Button
 import os
 
-# CONFIGURATION - Update these paths
+# Configuration - Update these paths
 
 IMAGE_PATH = "datasets/fracatlas/images/val/IMG0004208.jpg"
 OVERLAY_PATH = "fracture_results/IMG0004208_overlay.npy"  # Pre-saved heatmap overlay
