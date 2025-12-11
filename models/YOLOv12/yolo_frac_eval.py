@@ -1,17 +1,32 @@
+"""
+This code evaluates a trained YOLO12n model on either the train, val, or test set. 
+Output is precision, recall, and mAP@0.5
+You have to specify which set of data to run it on.
+-----------------------------------------------------------------------------------
+Requirements:
+    pathlib
+    json
+    ultralytics YOLO
+
+    Weights from training a YOLO12n model
+
+"""
+
+
 from pathlib import Path
 import json
 
 from ultralytics import YOLO
 
-## Eval Script to quickly get the stats with the results of a model ##
+# Eval Script to quickly get the stats with the results of a model #
 
 def main():
     data_yaml = "fracatlas.yaml"
     device = 0  # GPU
 
     # choose the run you want to evaluate
-    save_dir = Path("runs_frac") / "yolo12n_fracatlas_tuned"   # adjust 
-    best_weights = save_dir / "weights" / "best.pt"
+    save_dir = Path("runs_frac") / "yolo12n_fracatlas_tuned"   # adjust path
+    best_weights = save_dir / "weights" / "best.pt"            # adjust path
 
     # evaluate best model on the data split of your choice split 
     best_model = YOLO(str(best_weights))
@@ -19,7 +34,7 @@ def main():
         data=data_yaml,
         split="test",        # determines which split to run it on
         device=device,
-        conf = 0.5           # set's confidence threshold to filter out false positives
+        conf = 0.5           # set's confidence threshold to filter out false positives, this can be tuned by the user
     )
 
     box = metrics.box
