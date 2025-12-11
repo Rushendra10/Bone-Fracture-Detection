@@ -1,3 +1,13 @@
+""" 
+This code trains a YOLO12n model with fine-tuned parameters.
+
+Requirements:
+    pathlib
+    ultralytics
+    json
+"""
+
+
 from pathlib import Path
 import json
 
@@ -7,22 +17,22 @@ from ultralytics import YOLO
 
 
 def main():
-    # ---- config ----
+    # config 
     data_yaml = "fracatlas.yaml"
     base_model = "yolo12n.pt"
 
     epochs = 500              # more training
-    batch_size = 16           # try 16; if OOM, drop to 8
+    batch_size = 16           # try 16; if overloads local GPU, switch to 8
     img_size = 640
     device = 0                # GPU
 
     project = "runs_frac"
     run_name = "yolo12n_fracatlas_tuned"   # new run name
 
-    # ---- 1. load pretrained model ----
+    # 1. load pretrained model 
     model = YOLO(base_model)
 
-    # ---- 2. train / fine-tune on FracAtlas (train/val) ----
+    # 2. train / fine-tune on FracAtlas (train/val) 
     train_results = model.train(
         data=data_yaml,
         epochs=epochs,
@@ -45,7 +55,7 @@ def main():
     save_dir = Path(train_results.save_dir)
     best_weights = save_dir / "weights" / "best.pt"
 
-    # ---- 3. evaluate best model on the TEST split ----
+    # 3. evaluate best model on the TEST split 
     best_model = YOLO(str(best_weights))
     metrics = best_model.val(
         data=data_yaml,
@@ -67,7 +77,7 @@ def main():
     print(f"Mean recall:         {mean_recall:.4f}")
     print(f"mAP@0.5:             {mAP50:.4f}")
 
-    # ---- 4. save metrics to JSON next to this run ----
+    # 4. save metrics to JSON next to this run 
     results_dir = save_dir
     results_dir.mkdir(parents=True, exist_ok=True)
     out_path = results_dir / "metrics_fracatlas_yolo12n_tuned.json"
