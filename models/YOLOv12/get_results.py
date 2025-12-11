@@ -1,12 +1,24 @@
+"""
+This script obtains the predicted bounding boxes for any X-ray in the test, validation (val), or train set.
+----------------------------------------------------------------------------------------------------------
+You have to load the trained weights you want to use (suggest using the best weights obtained from training).
+
+Requirements:
+    pathlib
+    numpy
+    ultralytics YOLO
+
+"""
+
 from pathlib import Path
 import numpy as np
 from ultralytics import YOLO
 
-# 1) Load your tuned nano model
+# 1) Load your tuned nano model - Update this path
 WEIGHTS_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 model = YOLO(WEIGHTS_PATH)
 
-# 2) Paths to the two X-rays you care about
+# 2) Paths to the two X-rays you care about - Update these paths
 DATA_ROOT = Path("datasets/fracatlas")
 image_paths = [
     DATA_ROOT / "images" / "val" / "IMG0003924.jpg",
@@ -22,7 +34,7 @@ for img_path in image_paths:
         imgsz=640,     # same as training
         conf=0.25,     # confidence threshold
         iou=0.7,       # NMS IoU threshold (optional)
-        device=0,      # GPU; use 'cpu' if needed
+        device=0,      # GPU, use 'cpu' if needed
         verbose=False,
     )[0]
 
