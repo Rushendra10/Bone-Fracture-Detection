@@ -21,7 +21,7 @@ import matplotlib.patches as patches
 from ultralytics import YOLO
 import os
 
-# CONFIGURATION - Update these paths
+# Configuration - Update these paths
 
 MODEL_PATH = "runs_frac/yolo12n_fracatlas_tuned/weights/best.pt"
 TEST_IMAGES_PATH = "datasets/fracatlas/images/test"
@@ -32,7 +32,7 @@ DEVICE = 0
 NUM_EXAMPLES = 5
 OUTPUT_DIR = "false_negative_results"
 
-# FUNCTIONS
+# Helper Functions
 
 def compute_iou(box1, box2):
     """Compute IoU between two boxes in xyxy format."""
@@ -113,6 +113,7 @@ def visualize_false_negative(img_path, gt_boxes_xyxy, pred_boxes_info, best_iou,
     plt.close()
     print(f"  Saved: {output_path}")
 
+# Main
 
 def main():
     print("=" * 60)
@@ -206,7 +207,7 @@ def main():
                 else:
                     near_misses.append(fn_entry)
     
-    # Sort each category by best_iou (lowest first for complete misses and poor, highest first for near misses)
+    # Sort each category by best_iou (sort lowest first for complete misses and poor predictions; sort highest first for near misses)
     complete_misses.sort(key=lambda x: x['best_iou'])
     poor_localizations.sort(key=lambda x: x['best_iou'])
     near_misses.sort(key=lambda x: x['best_iou'], reverse=True)
